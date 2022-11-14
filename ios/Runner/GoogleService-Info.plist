@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>517419486566-e2ai5q8vmrob1tu2nj09nh51b2ad7uh3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.517419486566-e2ai5q8vmrob1tu2nj09nh51b2ad7uh3</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>517419486566-tl7s6g3rg5iq5vuou4983thke8ecqg4v.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD09jnKLgxqFaw7kIs8CdDy6pTyVP5EtY4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>517419486566</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.telamotoristas</string>
+	<key>PROJECT_ID</key>
+	<string>dados-d7024</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dados-d7024.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:517419486566:ios:aa630c4f1ba365fa1c8ca7</string>
+</dict>
+</plist>
