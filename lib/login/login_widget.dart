@@ -12,8 +12,8 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  TextEditingController? emailTextController;
-  TextEditingController? passwordTextController;
+  TextEditingController? textController1;
+  TextEditingController? textController2;
 
   late bool passwordVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -21,15 +21,15 @@ class _LoginWidgetState extends State<LoginWidget> {
   @override
   void initState() {
     super.initState();
-    emailTextController = TextEditingController();
-    passwordTextController = TextEditingController();
+    textController1 = TextEditingController();
+    textController2 = TextEditingController();
     passwordVisibility = false;
   }
 
   @override
   void dispose() {
-    emailTextController?.dispose();
-    passwordTextController?.dispose();
+    textController1?.dispose();
+    textController2?.dispose();
     super.dispose();
   }
 
@@ -99,7 +99,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
                     child: TextFormField(
-                      controller: emailTextController,
+                      controller: textController1,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Usuário',
@@ -179,7 +179,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
                     child: TextFormField(
-                      controller: passwordTextController,
+                      controller: textController2,
                       obscureText: !passwordVisibility,
                       decoration: InputDecoration(
                         labelText: 'Senha',
@@ -262,18 +262,16 @@ class _LoginWidgetState extends State<LoginWidget> {
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
-                        GoRouter.of(context).prepareAuthEvent();
-
-                        final user = await signInWithEmail(
-                          context,
-                          emailTextController!.text,
-                          passwordTextController!.text,
+                        context.pushNamed(
+                          'HomePage',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 1500),
+                            ),
+                          },
                         );
-                        if (user == null) {
-                          return;
-                        }
-
-                        context.goNamedAuth('', mounted);
                       },
                       text: 'Login',
                       options: FFButtonOptions(
