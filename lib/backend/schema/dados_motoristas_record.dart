@@ -22,6 +22,8 @@ abstract class DadosMotoristasRecord
 
   String? get status;
 
+  String? get estimado;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -31,7 +33,8 @@ abstract class DadosMotoristasRecord
         ..nome = ''
         ..observacao = ''
         ..placa = ''
-        ..status = '';
+        ..status = ''
+        ..estimado = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('dados-motoristas');
@@ -61,6 +64,7 @@ Map<String, dynamic> createDadosMotoristasRecordData({
   DateTime? dataEHora,
   String? placa,
   String? status,
+  String? estimado,
 }) {
   final firestoreData = serializers.toFirestore(
     DadosMotoristasRecord.serializer,
@@ -70,7 +74,8 @@ Map<String, dynamic> createDadosMotoristasRecordData({
         ..observacao = observacao
         ..dataEHora = dataEHora
         ..placa = placa
-        ..status = status,
+        ..status = status
+        ..estimado = estimado,
     ),
   );
 
