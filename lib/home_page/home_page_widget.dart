@@ -2,6 +2,7 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePageWidget extends StatefulWidget {
@@ -15,10 +16,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    super.initState();
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await Future.delayed(const Duration(milliseconds: 1000));
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).lineColor,
+      backgroundColor: Color(0xFF303030),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Column(
@@ -60,9 +70,82 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                                child: SelectionArea(
+                                    child: Text(
+                                  'DATA E HORA',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        fontSize: 27,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                )),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.15,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF01987A),
+                          border: Border.all(
+                            color: Color(0xFF01987A),
+                            width: 2,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                child: SelectionArea(
+                                    child: Text(
+                                  'ESTIMADO',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        fontSize: 27,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                )),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.19,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF01987A),
+                          border: Border.all(
+                            color: Color(0xFF01987A),
+                            width: 2,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Expanded(
                               child: SelectionArea(
                                   child: Text(
                                 'MOTORISTA',
@@ -92,78 +175,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             width: 2,
                           ),
                         ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              SelectionArea(
-                                  child: Text(
-                                'PLACA',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                      fontSize: 27,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              )),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.19,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF01987A),
-                          border: Border.all(
-                            color: Color(0xFF01987A),
-                            width: 2,
-                          ),
-                        ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             SelectionArea(
                                 child: Text(
-                              'DATA E HORA',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                    fontSize: 27,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            )),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.15,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF01987A),
-                          border: Border.all(
-                            color: Color(0xFF01987A),
-                            width: 2,
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            SelectionArea(
-                                child: Text(
-                              'SITUAÇÃO',
+                              'PLACA',
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
@@ -200,7 +218,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           children: [
                             SelectionArea(
                                 child: Text(
-                              'OBSERVAÇÃO',
+                              'SITUAÇÃO',
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -210,6 +228,35 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     fontSize: 27,
                                   ),
                             )),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF01987A),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: SelectionArea(
+                                  child: Text(
+                                'OBSERVAÇÃO',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontSize: 27,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              )),
+                            ),
                           ],
                         ),
                       ),
@@ -286,6 +333,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.2,
                                       height: 100,
                                       decoration: BoxDecoration(
+                                        color: Color(0xFF303030),
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(10),
                                           bottomRight: Radius.circular(0),
@@ -304,18 +352,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           Expanded(
                                             child: SelectionArea(
                                                 child: Text(
-                                              listViewDadosMotoristasRecord
-                                                  .nome!,
+                                              dateTimeFormat(
+                                                  'd/M h:mm a',
+                                                  listViewDadosMotoristasRecord
+                                                      .dataEHora!),
                                               textAlign: TextAlign.center,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
+                                                        color: Colors.white,
                                                         fontSize: 25,
                                                       ),
                                             )),
@@ -330,9 +377,84 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.15,
                                       height: 100,
                                       decoration: BoxDecoration(
+                                        color: Color(0xFF303030),
                                         borderRadius: BorderRadius.circular(0),
                                         border: Border.all(
                                           color: Color(0xFFF2F2F2),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Expanded(
+                                            child: SelectionArea(
+                                                child: Text(
+                                              listViewDadosMotoristasRecord
+                                                  .estimado!,
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        fontSize: 25,
+                                                      ),
+                                            )),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.19,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF303030),
+                                        borderRadius: BorderRadius.circular(0),
+                                        border: Border.all(
+                                          color: Color(0xFFF2F2F2),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Expanded(
+                                            child: SelectionArea(
+                                                child: Text(
+                                              listViewDadosMotoristasRecord
+                                                  .nome!,
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        fontSize: 25,
+                                                      ),
+                                            )),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.15,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF303030),
+                                        borderRadius: BorderRadius.circular(0),
+                                        border: Border.all(
+                                          color: Color(0xFFF7F8F9),
                                         ),
                                       ),
                                       child: Row(
@@ -351,90 +473,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        fontSize: 25,
-                                                      ),
-                                            )),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.19,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(0),
-                                        border: Border.all(
-                                          color: Color(0xFFF2F2F2),
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Expanded(
-                                            child: SelectionArea(
-                                                child: Text(
-                                              dateTimeFormat(
-                                                  'd/M h:mm a',
-                                                  listViewDadosMotoristasRecord
-                                                      .dataEHora!),
-                                              textAlign: TextAlign.center,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        fontSize: 25,
-                                                      ),
-                                            )),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.15,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(0),
-                                        border: Border.all(
-                                          color: Color(0xFFF7F8F9),
-                                        ),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Expanded(
-                                            child: SelectionArea(
-                                                child: Text(
-                                              listViewDadosMotoristasRecord
-                                                  .status!,
-                                              textAlign: TextAlign.center,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
+                                                        color: Colors.white,
                                                         fontSize: 25,
                                                       ),
                                             )),
@@ -449,12 +488,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.31,
                                       height: 100,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(0),
-                                          bottomRight: Radius.circular(10),
-                                          topLeft: Radius.circular(0),
-                                          topRight: Radius.circular(10),
-                                        ),
+                                        color: Color(0xFF303030),
+                                        borderRadius: BorderRadius.circular(0),
                                         border: Border.all(
                                           color: Color(0xFFF7F8F9),
                                         ),
@@ -471,7 +506,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               child: SelectionArea(
                                                   child: Text(
                                                 listViewDadosMotoristasRecord
-                                                    .observacao!,
+                                                    .status!,
                                                 textAlign: TextAlign.center,
                                                 maxLines: 5,
                                                 style:
@@ -479,13 +514,51 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
+                                                          color: Colors.white,
                                                           fontSize: 25,
                                                         ),
                                               )),
                                             ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      width: 100,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF303030),
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0),
+                                          bottomRight: Radius.circular(10),
+                                          topLeft: Radius.circular(0),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                        border: Border.all(
+                                          color: Color(0xFFF7F8F9),
+                                          width: 2,
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: SelectionArea(
+                                                child: Text(
+                                              listViewDadosMotoristasRecord
+                                                  .observacao!,
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        fontSize: 25,
+                                                      ),
+                                            )),
                                           ),
                                         ],
                                       ),

@@ -60,6 +60,13 @@ class _$DadosMotoristasRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.estimado;
+    if (value != null) {
+      result
+        ..add('estimado')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -103,6 +110,10 @@ class _$DadosMotoristasRecordSerializer
           result.status = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'estimado':
+          result.estimado = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -128,6 +139,8 @@ class _$DadosMotoristasRecord extends DadosMotoristasRecord {
   @override
   final String? status;
   @override
+  final String? estimado;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$DadosMotoristasRecord(
@@ -140,6 +153,7 @@ class _$DadosMotoristasRecord extends DadosMotoristasRecord {
       this.dataEHora,
       this.placa,
       this.status,
+      this.estimado,
       this.ffRef})
       : super._();
 
@@ -161,6 +175,7 @@ class _$DadosMotoristasRecord extends DadosMotoristasRecord {
         dataEHora == other.dataEHora &&
         placa == other.placa &&
         status == other.status &&
+        estimado == other.estimado &&
         ffRef == other.ffRef;
   }
 
@@ -169,10 +184,12 @@ class _$DadosMotoristasRecord extends DadosMotoristasRecord {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, nome.hashCode), observacao.hashCode),
-                    dataEHora.hashCode),
-                placa.hashCode),
-            status.hashCode),
+                $jc(
+                    $jc($jc($jc(0, nome.hashCode), observacao.hashCode),
+                        dataEHora.hashCode),
+                    placa.hashCode),
+                status.hashCode),
+            estimado.hashCode),
         ffRef.hashCode));
   }
 
@@ -184,6 +201,7 @@ class _$DadosMotoristasRecord extends DadosMotoristasRecord {
           ..add('dataEHora', dataEHora)
           ..add('placa', placa)
           ..add('status', status)
+          ..add('estimado', estimado)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -213,6 +231,10 @@ class DadosMotoristasRecordBuilder
   String? get status => _$this._status;
   set status(String? status) => _$this._status = status;
 
+  String? _estimado;
+  String? get estimado => _$this._estimado;
+  set estimado(String? estimado) => _$this._estimado = estimado;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -229,6 +251,7 @@ class DadosMotoristasRecordBuilder
       _dataEHora = $v.dataEHora;
       _placa = $v.placa;
       _status = $v.status;
+      _estimado = $v.estimado;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -257,6 +280,7 @@ class DadosMotoristasRecordBuilder
             dataEHora: dataEHora,
             placa: placa,
             status: status,
+            estimado: estimado,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
