@@ -483,6 +483,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.31,
                                       height: 100,
                                       decoration: BoxDecoration(
+                                        color: listViewDadosMotoristasRecord
+                                                    .status! ==
+                                                'Em espera'
+                                            ? Color.fromARGB(255, 214, 218, 13)
+                                            : listViewDadosMotoristasRecord
+                                                        .status! ==
+                                                    'Carregamento imediato'
+                                                ? Color.fromARGB(
+                                                    255, 23, 207, 6)
+                                                : Color.fromARGB(
+                                                    255, 211, 15, 9),
                                         borderRadius: BorderRadius.circular(0),
                                         border: Border.all(
                                           color: Color(0xFFF7F8F9),
