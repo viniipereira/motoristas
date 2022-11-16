@@ -320,8 +320,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               width: 100,
                               height: 100,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                color: Color(0xFF303030),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Row(
@@ -333,7 +332,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.2,
                                       height: 100,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF303030),
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(10),
                                           bottomRight: Radius.circular(0),
@@ -353,7 +351,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             child: SelectionArea(
                                                 child: Text(
                                               dateTimeFormat(
-                                                  'd/M h:mm',
+                                                  'd/M H:mm',
                                                   listViewDadosMotoristasRecord
                                                       .dataEHora!),
                                               textAlign: TextAlign.center,
@@ -377,7 +375,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.15,
                                       height: 100,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF303030),
                                         borderRadius: BorderRadius.circular(0),
                                         border: Border.all(
                                           color: Color(0xFFF2F2F2),
@@ -414,7 +411,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.19,
                                       height: 100,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF303030),
                                         borderRadius: BorderRadius.circular(0),
                                         border: Border.all(
                                           color: Color(0xFFF2F2F2),
@@ -451,7 +447,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           0.15,
                                       height: 100,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF303030),
                                         borderRadius: BorderRadius.circular(0),
                                         border: Border.all(
                                           color: Color(0xFFF7F8F9),
@@ -539,7 +534,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       width: 100,
                                       height: 100,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF303030),
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0),
                                           bottomRight: Radius.circular(10),
