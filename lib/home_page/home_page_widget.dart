@@ -353,7 +353,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             child: SelectionArea(
                                                 child: Text(
                                               dateTimeFormat(
-                                                  'd/M h:mm a',
+                                                  'd/M h:mm',
                                                   listViewDadosMotoristasRecord
                                                       .dataEHora!),
                                               textAlign: TextAlign.center,
